@@ -1,0 +1,25 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Python Cache
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Data files (Prevents committing massive datasets to GitHub)
+*.csv
+*.json
+*.xlsx
+*.zip
+*.data
+
+# IDE / Editor Settings
+.vscode/
+.idea/
+
+# Operating System Files
+Thumbs.db
+.DS_Store

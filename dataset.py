@@ -212,18 +212,34 @@ plt.tight_layout()
 plt.savefig('plots/fig1_age_distribution.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-# ------- FIGURE 2: Distribution of Sex (Bar Chart) -------
+
+# FIGURE 2: Distribution of Sex (Corrected)
+
 fig, ax = plt.subplots(figsize=(8, 5))
-df['sex'].value_counts().plot(kind='bar', ax=ax, color=['#ff7f0e', '#1f77b4'])
+
+# Explicitly map the numerical codes to their labels
+sex_counts = (
+    df['sex']
+    .map({0: 'Female', 1: 'Male'})
+    .value_counts()
+    .reindex(['Female', 'Male'], fill_value=0)
+)
+
+sex_counts.plot(kind='bar', ax=ax, color=['#ff7f0e', '#1f77b4'])
+
 ax.set_title('Fig. 2: Distribution of Sex', fontsize=12)
 ax.set_xlabel('Sex')
 ax.set_ylabel('Count')
-ax.set_xticklabels(['Female (0)', 'Male (1)'], rotation=0)
-for i, v in enumerate(df['sex'].value_counts().values):
+ax.set_xticklabels(['Female', 'Male'], rotation=0)
+
+for i, v in enumerate(sex_counts.values):
     ax.text(i, v + 2, str(v), ha='center')
+
 plt.tight_layout()
-plt.savefig('plots/fig2_sex_distribution.png', dpi=300, bbox_inches='tight')
+plt.savefig('plots/fig2_sex_distribution.png',
+            dpi=300, bbox_inches='tight')
 plt.show()
+
 
 # ------- FIGURE 3: Cholesterol by Target (Box Plot) -------
 fig, ax = plt.subplots(figsize=(8, 6))

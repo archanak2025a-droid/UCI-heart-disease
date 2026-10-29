@@ -312,7 +312,7 @@ print("""
 1. SAMPLE CHARACTERISTICS:
    - Total patients: 303
    - Heart disease prevalence: 45.9% (139 patients)
-   - Sex distribution: 68.3% male (207 patients)
+   - Sex distribution: 68.0% male (206 patients)
 
 2. STRONGEST CORRELATIONS WITH HEART DISEASE:
    - Maximum Heart Rate (thalach): r = -0.42 (negative correlation)
